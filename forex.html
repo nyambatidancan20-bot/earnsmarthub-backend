@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Forex - EarnSmartHub</title>
+<style>
+body { font-family: Arial; background:#0f172a; color:white; text-align:center; }
+</style>
+</head>
+<body>
+
+<h1>Forex Trading</h1>
+
+<p>Learn how Forex trading works and how to grow your account smartly.</p>
+
+<h2>What is Forex?</h2>
+<p>Forex is the exchange of currencies like GBP/USD.</p>
+
+<h2>Beginner Strategy</h2>
+<p>Use RSI + trend direction on 15-minute timeframe.</p>
+<h2>Lot Size Calculator</h2>
+
+<input type="number" id="balance" placeholder="Account Balance">
+<input type="number" id="risk" placeholder="Risk %">
+<button onclick="calculate()">Calculate</button>
+
+<p id="result"></p>
+
+<script>
+function calculate() {
+    let balance = document.getElementById("balance").value;
+    let risk = document.getElementById("risk").value;
+
+    let riskAmount = (balance * risk) / 100;
+
+    document.getElementById("result").innerText =
+        "Risk Amount: $" + riskAmount;
+}
+</script>
+
+<a href="index.html">Back Home</a>
+
+</body>
+</html>

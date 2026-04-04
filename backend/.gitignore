@@ -1,0 +1,1 @@
+MONGO_URI=mongodb://dellion:04BzYw6ioIpOuVwj@ac-k2ii7wk-shard-00-00.kvirdua.mongodb.net:27017,ac-k2ii7wk-shard-00-01.kvirdua.mongodb.net:27017,ac-k2ii7wk-shard-00-02.kvirdua.mongodb.net:27017/earnsmarthub?ssl=true&replicaSet=atlas-h4dhuk-shard-0&authSource=admin&retryWrites=true&w=majority

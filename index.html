@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EarnSmartHub</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+}
+
+header {
+    background: #020617;
+    padding: 20px;
+    text-align: center;
+}
+
+nav a {
+    margin: 0 15px;
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 40px;
+}
+
+.btn {
+    padding: 12px 25px;
+    background: #22c55e;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.card {
+    background: #1e293b;
+    margin: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    width: 250px;
+}
+
+footer {
+    background: #020617;
+    padding: 20px;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>EarnSmartHub</h2>
+   <nav>
+    <a href="index.html">Home</a>
+    <a href="forex.html">Forex</a>
+    <a href="ai-tools.html">AI Tools</a>
+    <a href="start.html">Start Now</a>
+</nav>
+</header>
+
+<div class="hero">
+    <h1>Earn Smarter, Not Harder</h1>
+    <p>Learn Forex & AI tools to build real income streams 🚀</p>
+    <button class="btn">Get Started</button>
+    <div class="section">
+    <h2>Join EarnSmartHub</h2>
+    <p>Get free Forex tips & AI tools straight to your email</p>
+
+    <form onsubmit="subscribe(event)">
+        <input type="email" id="email" placeholder="Enter your email" required
+        style="padding:10px; width:250px; border-radius:5px; border:none;">
+        
+        <button class="btn">Subscribe</button>
+    </form>
+
+    <p id="message"></p>
+</div>
+
+<script>
+async function subscribe(e) {
+    e.preventDefault();
+
+    let email = document.getElementById("email").value;
+
+    try {
+        let response = await fetch("http://localhost:3000/subscribe", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email })
+        });
+
+        let data = await response.json();
+
+        document.getElementById("message").innerText = data.message;
+
+    } catch (error) {
+        document.getElementById("message").innerText =
+            "Error connecting to server ⚠️";
+    }
+}
+</script>
+</div>
+
+<div class="section">
+    <h2>What You'll Learn</h2>
+
+    <div class="card">
+        <h3>Forex Basics</h3>
+        <p>Understand trading step by step.</p>
+    </div>
+
+    <div class="card">
+        <h3>Trading Strategies</h3>
+        <p>Simple setups that actually work.</p>
+    </div>
+
+    <div class="card">
+        <h3>AI Money Tools</h3>
+        <p>Use AI to create income online.</p>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Start Your Journey</h2>
+    <p>No hype. Just real strategies that can grow your income over time.</p>
+</div>
+
+<footer>
+    <p>© 2026 EarnSmartHub | Built by Dellion</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard | EarnSmartHub</title>
+
+<style>
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Layout */
+body {
+    display: flex;
+    min-height: 100vh;
+    background: #f4f7fb;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    background: #5b86e5;
+    color: #fff;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 30px;
+}
+
+.sidebar a {
+    display: block;
+    margin: 15px 0;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+/* Main content */
+.main {
+    flex: 1;
+    padding: 30px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    color: #333;
+}
+
+/* Cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.card h3 {
+    color: #5b86e5;
+    margin-bottom: 10px;
+}
+
+/* Button */
+.logout-btn {
+    padding: 10px 15px;
+    background: #ff4b4b;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background: #d93636;
+}
+
+/* Status */
+#status {
+    margin-top: 10px;
+    font-weight: bold;
+    color: green;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>EarnSmartHub</h2>
+    <a href="#">Dashboard</a>
+    <a href="#">Tasks</a>
+    <a href="#">Earnings</a>
+    <a href="#">Profile</a>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+    <div class="header">
+        <h1>Dashboard 🚀</h1>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <p id="status"></p>
+
+    <!-- Cards -->
+    <div class="cards">
+        <div class="card">
+            <h3>Total Earnings</h3>
+            <p>$0.00</p>
+        </div>
+
+        <div class="card">
+            <h3>Tasks Completed</h3>
+            <p>0</p>
+        </div>
+
+        <div class="card">
+            <h3>Available Tasks</h3>
+            <p>5</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+// Auth check
+let token = localStorage.getItem("token");
+
+if(!token){
+    window.location.href = "login.html";
+} else {
+    document.getElementById("status").innerText = "You are logged in ✅";
+}
+
+// Logout
+function logout(){
+    localStorage.removeItem("token");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>
