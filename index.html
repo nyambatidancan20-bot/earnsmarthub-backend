@@ -101,7 +101,7 @@ async function subscribe(e) {
     let email = document.getElementById("email").value;
 
     try {
-        let response = await fetch("http://localhost:3000/subscribe", {
+        let response = await fetch("https://your-render-url.onrender.com/subscribe", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
